@@ -24,7 +24,6 @@
 
 | Column             | Type   | Options                         |
 | ------------------ | ------ | ------------------------------- |
-| user_id            | string | null: false, foreign_key: true  |
 | postal_code        | string | null: false                     |
 | prefecture_id      | integer| null: false                     |
 | city               | string | null: false                     |
@@ -34,7 +33,7 @@
 
 
 ### Association
-
+has_one :product_users
 
 
 
@@ -55,7 +54,7 @@
 
 ### Association
 
-- has_many :product_users
+- has_one :product_users
 - has_many :users, through: :product_users
 - belongs_to_active_hash :prefecture
 
@@ -69,7 +68,7 @@
 | user    | references | null: false, foreign_key: true |
 
 ### Association
-
+- has_one :customer_info
 - belongs_to :product
 - belongs_to :user
 
