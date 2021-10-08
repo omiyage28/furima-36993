@@ -22,18 +22,18 @@
 
 ## customer_info テーブル
 
-| Column             | Type   | Options                         |
-| ------------------ | ------ | ------------------------------- |
-| postal_code        | string | null: false                     |
-| prefecture_id      | integer| null: false                     |
-| city               | string | null: false                     |
-| address            | string | null: false                     |
-| apartment          | string | null: false                     |
-| phone_number       | string | null: false                     |
-
+| Column             | Type      | Options                         |
+| ------------------ | --------- | ------------------------------- |
+| postal_code        | string    | null: false                     |
+| prefecture_id      | integer   | null: false                     |
+| city               | string    | null: false                     |
+| address            | string    | null: false                     |
+| apartment          | string    |                                 |
+| phone_number       | string    | null: false                     |
+| product_user       | references| null: false, foreign_key: true  |
 
 ### Association
-has_one :product_users
+- belongs_to :product_user
 
 
 
@@ -42,8 +42,8 @@ has_one :product_users
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | name               | string     | null: false                    |
-| price              | string     | null: false                    |
-| description        | string     | null: false                    |
+| price              | integer    | null: false                    |
+| description        | text       | null: false                    |
 | status_id          | integer    | null: false                    |
 | shipping_method_id | integer    | null: false                    |
 | prefecture_id      | integer    | null: false                    |
