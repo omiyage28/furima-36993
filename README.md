@@ -1,3 +1,4 @@
+
 # テーブル設計
 
 ## users テーブル
@@ -57,6 +58,5 @@
 
 - belongs_to :user dependent: :destroy
 - belongs_to_active_hash :prefecture
-
 
 
