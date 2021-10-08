@@ -1,3 +1,4 @@
+
 # テーブル設計
 
 ## users テーブル
@@ -59,6 +60,7 @@
 - belongs_to_active_hash :prefecture
 
 
+
 ## product_users テーブル
 
 | Column  | Type       | Options                        |
@@ -70,3 +72,4 @@
 
 - belongs_to :product
 - belongs_to :user
+
