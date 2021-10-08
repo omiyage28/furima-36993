@@ -25,10 +25,6 @@
 | Column             | Type   | Options                         |
 | ------------------ | ------ | ------------------------------- |
 | user_id            | string | null: false, foreign_key: true  |
-| last_name          | string | null: false                     |
-| first_name         | string | null: false                     |
-| last_name_kana     | string | null: false                     |
-| first_name_kana    | string | null: false                     |
 | postal_code        | string | null: false                     |
 | prefecture         | string | null: false                     |
 | city               | string | null: false                     |
