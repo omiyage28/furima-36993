@@ -59,6 +59,18 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages)
 
       end
+
+      it '販売価格が300より小さい時は出品できない' do
+        @item.price = 299
+        @item.valid?
+        expect(@item.errors.full_messages)
+     end
+
+      it '販売価格が9999999より大きい時は出品できない' do
+        @item.price = 10000000
+        @item.valid?
+        expect(@item.errors.full_messages)
+     end
     end
   end
 end
