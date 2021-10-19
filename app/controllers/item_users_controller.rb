@@ -4,8 +4,11 @@ class ItemUsersController < ApplicationController
   before_action :set_item, only: [:index, :create]
   
  
-def index  
-    redirect_to root_path unless current_user.id == @information.user_id
+def index 
+    if current_user == @item.user
+       redirect_to root_path
+    end
+    
 end
 
 def new
