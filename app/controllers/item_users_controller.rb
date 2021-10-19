@@ -1,6 +1,6 @@
 class ItemUsersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
-  before_action :information_form, only: [:index, :new]
+  before_action :information_form, only: [:index]
   before_action :set_item, only: [:index, :create]
   before_action :prevent_url, only: [:index, :create]
  
@@ -8,9 +8,7 @@ def index
     
 end
 
-def new
-  
-end
+
 
 
 def create
