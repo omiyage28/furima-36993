@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :set_item, only: [:edit, :show, :update, :destroy]
   before_action :permited_user, only: [:edit, :update, :destroy]
-    def index
+  before_action :edit_cancel, only: :edit
+
+  def index
       @items = Item.all.order("created_at DESC")
       
     end
@@ -60,6 +62,11 @@ def permited_user
    redirect_to root_path unless current_user.id == @item.user_id
 end
 
+
+
+def edit_cancel
+  redirect_to root_path if @item.item_user.present?
+end
 
 end
 
