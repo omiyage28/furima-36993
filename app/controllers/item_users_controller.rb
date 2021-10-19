@@ -1,11 +1,11 @@
 class ItemUsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :information_form, only: [:index, :new]
   before_action :set_item, only: [:index, :create]
-  
+  before_action :prevent_url, only: [:index, :create]
  
 def index 
-    if current_user == @item.user
+    if current_user == @item.user|| @item.item_user =! nil
        redirect_to root_path
     end
     
@@ -44,6 +44,9 @@ def set_item
   @item = Item.find(params[:item_id])
 end
 
+def prevent_url
+  redirect_to root_path if current_user == @item.user || @item.item_user.present?
+end
 
 
 
