@@ -2,14 +2,14 @@ class ItemUsersController < ApplicationController
   before_action :authenticate_user!
   before_action :information_form, only: [:index, :new]
   before_action :set_item, only: [:index, :create]
+  
  
-  def index 
-    if current_user == @item.user
-       redirect_to root_path
-    end
+def index  
+    redirect_to root_path unless current_user.id == @information.user_id
 end
 
 def new
+  
 end
 
 
@@ -40,6 +40,8 @@ end
 def set_item
   @item = Item.find(params[:item_id])
 end
+
+
 
 
 def pay_item
